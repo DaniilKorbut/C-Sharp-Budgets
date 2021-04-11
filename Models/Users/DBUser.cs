@@ -1,8 +1,9 @@
 ﻿using System;
+using DataStorage;
 
 namespace Budgets.Models.Users
 {
-    public class DBUser
+    public class DBUser : IStorable
     {
         public Guid Guid { get; }
         public string FirstName { get; }

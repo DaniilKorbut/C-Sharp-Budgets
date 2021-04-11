@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Budgets.GUI.WPF.Navigation;
+using Budgets.GUI.WPF.Navigation.AV.ProgrammingWithCSharp.Budgets.GUI.WPF.Navigation;
 using Budgets.Models.Wallets;
 using Budgets.Services;
 using Prism.Mvvm;

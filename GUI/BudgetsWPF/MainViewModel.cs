@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Budgets.GUI.WPF.Authentication;
 using Budgets.GUI.WPF.Navigation;
+using Budgets.GUI.WPF.Navigation.AV.ProgrammingWithCSharp.Budgets.GUI.WPF.Navigation;
 using Budgets.GUI.WPF.Wallets;
 using Prism.Mvvm;
 

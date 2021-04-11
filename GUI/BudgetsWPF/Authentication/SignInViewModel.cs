@@ -4,12 +4,14 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
+using Budgets.GUI.WPF.Navigation;
+using Budgets.GUI.WPF.Navigation.AV.ProgrammingWithCSharp.Budgets.GUI.WPF.Navigation;
 using Budgets.Models.Users;
 using Budgets.Services;
 
 namespace Budgets.GUI.WPF.Authentication
 {
-    public class SignInViewModel : INotifyPropertyChanged, IAuthNavigatable
+    public class SignInViewModel : INotifyPropertyChanged, INavigatable<AuthNavigatableTypes>
     {
         private AuthenticationUser authenticationUser = new AuthenticationUser();
 
@@ -79,22 +81,20 @@ namespace Budgets.GUI.WPF.Authentication
         {
             if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
             {
-                MessageBox.Show("Login or Password is empty");
+                MessageBox.Show("Login or Password is empty", "Sign in failed");
             }
             else
             {
-
-
                 var authService = new AuthenticationService();
                 User user = null;
                 try
                 {
                     IsEnabled = false;
-                    user = await Task.Run(() => authService.Authenticate(authenticationUser));
+                    user = await authService.Authenticate(authenticationUser);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Sign in failed. Reason: " + ex.Message);
+                    MessageBox.Show(ex.Message, "Sign in failed");
                     return;
                 }
                 finally

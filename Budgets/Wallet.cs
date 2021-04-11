@@ -6,36 +6,35 @@ namespace Budgets
     public class Wallet
     {
         private static int InstanceCount = 1;
-        private int id;
-        private string name;
-        private decimal startBalance;
-        private decimal currentBalance;
-        private string description;
-        private string currency;
 
-        private User owner;
+        private User owner = null;
 
         private List<Transaction> transactions = new List<Transaction>();
         private List<Category> categories = new List<Category>();
 
         public Wallet(User owner, string name, decimal startBalance, string currency, string description = null)
         {
-            this.name = name;
-            this.startBalance = startBalance;
-            this.currentBalance = startBalance;
-            this.currency = currency;
-            this.description = description;
+            this.Name = name;
+            this.StartBalance = startBalance;
+            this.CurrentBalance = startBalance;
+            this.Currency = currency;
+            this.Description = description;
             this.Id = InstanceCount++;
             this.owner = owner;
             this.owner.AddWallet(this);
         }
 
-        public int Id { get => id; private set => id = value; }
-        public string Name { get => name; set => name = value; }
-        public decimal StartBalance { get => startBalance; set => startBalance = value; }
-        public decimal CurrentBalance { get => currentBalance; private set => currentBalance = value; }
-        public string Description { get => description; set => description = value; }
-        public string Currency { get => currency; set => currency = value; }
+        public int Id { get; private set; }
+
+        public string Name { get; set; }
+
+        public decimal StartBalance { get; set; }
+
+        public decimal CurrentBalance { get; private set; }
+
+        public string Description { get; set; }
+
+        public string Currency { get; set; }
 
         public void AddTransaction(decimal sum, string currency, Category category, DateTime date, string description = null, List<string> files = null)
         {
@@ -144,16 +143,12 @@ namespace Budgets
 
         public bool Validate()
         {
-            bool isValid = true;
-            if(owner == null)
+            bool isValid = owner != null;
+            if (string.IsNullOrWhiteSpace(Name))
             {
                 isValid = false;
             }
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                isValid = false;
-            }
-            if (string.IsNullOrWhiteSpace(currency))
+            if (string.IsNullOrWhiteSpace(Currency))
             {
                 isValid = false;
             }

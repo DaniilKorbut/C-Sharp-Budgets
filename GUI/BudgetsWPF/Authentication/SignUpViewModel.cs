@@ -3,16 +3,29 @@ using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using Budgets.GUI.WPF.Navigation;
+using Budgets.GUI.WPF.Navigation.AV.ProgrammingWithCSharp.Budgets.GUI.WPF.Navigation;
 using Budgets.Models.Users;
 using Budgets.Services;
 
 namespace Budgets.GUI.WPF.Authentication
 {
-    public class SignUpViewModel : INotifyPropertyChanged, IAuthNavigatable
+    public class SignUpViewModel : INotifyPropertyChanged, INavigatable<AuthNavigatableTypes>
     {
         private RegistrationUser regUser = new RegistrationUser();
 
         private Action goToSignIn;
+
+        private bool isEnabled = true;
+        public bool IsEnabled
+        {
+            get { return isEnabled; }
+            set
+            {
+                isEnabled = value;
+                OnPropertyChanged();
+            }
+        }
 
         public AuthNavigatableTypes Type
         {
@@ -103,24 +116,16 @@ namespace Budgets.GUI.WPF.Authentication
             SignInCommand = new DelegateCommand(this.goToSignIn);
         }
 
-        private void SignUp()
+        private async void SignUp()
         {
-
-            
-               /* var authUser = new AuthenticationUser()
-                {
-                    Login = Tb_Login.Text,
-                    Password = Tb_Password.Text
-                };*/
-
-                var authService = new AuthenticationService();
+            var authService = new AuthenticationService();
                 try
                 {
-                    authService.RegisterUser(regUser);
+                    await authService.RegisterUser(regUser);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Sign Up failed. Reason: " + ex.Message);
+                    MessageBox.Show(ex.Message,"Sign Up failed");
                     return;
                 }
 

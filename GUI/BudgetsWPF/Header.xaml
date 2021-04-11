@@ -7,7 +7,7 @@
              >
     <Border Background="#16479e">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Source="Images/logo_kma.png" Stretch="Uniform" Margin="10" MinHeight="90" Height="90"></Image>
+            <Image Source="Images/logo_kma.png" Stretch="Uniform" Margin="20" MinHeight="90" Height="90"></Image>
             <TextBlock Text="NAUKMA Budgets App" VerticalAlignment="Center" FontSize="30" Foreground="White" FontWeight="SemiBold"></TextBlock>
         </StackPanel>
     </Border>

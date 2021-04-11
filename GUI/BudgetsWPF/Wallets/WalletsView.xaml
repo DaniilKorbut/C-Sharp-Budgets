@@ -13,12 +13,13 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition MinWidth="200"></ColumnDefinition>
+            <ColumnDefinition Width="2"></ColumnDefinition>
+            <ColumnDefinition Width="3*" MinWidth="320"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ListView ItemsSource="{Binding Wallets}" DisplayMemberPath="DisplayName" 
                   SelectedItem="{Binding CurrentWallet}"></ListView>
-
-        <ContentControl Grid.Column="2" Content="{Binding CurrentWallet}"></ContentControl>
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"></GridSplitter>
+        <ContentControl  Grid.Column="2" Grid.Row="0" Content="{Binding CurrentWallet}"></ContentControl>
     </Grid>
 </UserControl>

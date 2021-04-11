@@ -37,11 +37,7 @@ namespace Budgets
 
         public bool Validate()
         {
-            bool isValid = true;
-            if(this.wallet == null)
-            {
-                isValid = false;
-            }
+            bool isValid = this.wallet != null;
             if (string.IsNullOrWhiteSpace(this.currency))
             {
                 isValid = false;
