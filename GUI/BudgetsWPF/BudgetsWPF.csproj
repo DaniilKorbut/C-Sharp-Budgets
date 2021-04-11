@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Budgets</AssemblyName>
+    <RootNamespace>Budgets.GUI.WPF</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\logo_kma.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Models\Models.csproj" />
+    <ProjectReference Include="..\..\Services\Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\logo_kma.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Authentication\SignInView - Копировать %282%29 - Копировать.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>SignInView - Копировать (2).xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Authentication\SignInView - Копировать %282%29.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>SignUpView.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Authentication\SignInView - Копировать - Копировать %282%29.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>SignInView - Копировать.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Authentication\SignInView - Копировать - Копировать - Копировать.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>SignInView - Копировать - Копировать.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Authentication\SignInView - Копировать - Копировать.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>SignInView - Копировать.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Authentication\SignInView - Копировать.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>SignUpView.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Authentication\SignInView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Authentication\SignInView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>
