@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using Budgets.GUI.WPF.Navigation;
 using Budgets.GUI.WPF.Navigation.AV.ProgrammingWithCSharp.Budgets.GUI.WPF.Navigation;
-using Budgets.Models.Users;
 using Budgets.Services;
+using Budgets.BusinessLayer.Users;
 
 namespace Budgets.GUI.WPF.Authentication
 {
@@ -91,6 +91,7 @@ namespace Budgets.GUI.WPF.Authentication
                 {
                     IsEnabled = false;
                     user = await authService.Authenticate(authenticationUser);
+                    CurrentUser.User = user;
                 }
                 catch (Exception ex)
                 {

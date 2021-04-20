@@ -5,8 +5,8 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using Budgets.GUI.WPF.Navigation;
 using Budgets.GUI.WPF.Navigation.AV.ProgrammingWithCSharp.Budgets.GUI.WPF.Navigation;
-using Budgets.Models.Users;
 using Budgets.Services;
+using Budgets.BusinessLayer.Users;
 
 namespace Budgets.GUI.WPF.Authentication
 {

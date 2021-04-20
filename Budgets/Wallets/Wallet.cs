@@ -1,45 +1,46 @@
-﻿using System;
+﻿using Budgets.BusinessLayer.Users;
+using DataStorage;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Budgets
+namespace Budgets.BusinessLayer.Wallets
 {
-    public class Wallet
+    public class Wallet : IStorable
     {
-        private static int InstanceCount = 1;
-
-        private User owner = null;
-
-        private List<Transaction> transactions = new List<Transaction>();
-        private List<Category> categories = new List<Category>();
-
-        public Wallet(User owner, string name, decimal startBalance, string currency, string description = null)
-        {
-            this.Name = name;
-            this.StartBalance = startBalance;
-            this.CurrentBalance = startBalance;
-            this.Currency = currency;
-            this.Description = description;
-            this.Id = InstanceCount++;
-            this.owner = owner;
-            this.owner.AddWallet(this);
-        }
-
-        public int Id { get; private set; }
+        public User owner { get; set; }
 
         public string Name { get; set; }
+        public decimal Balance { get; set; }
+
+        public Guid Guid { get; private set; }
 
         public decimal StartBalance { get; set; }
-
-        public decimal CurrentBalance { get; private set; }
 
         public string Description { get; set; }
 
         public string Currency { get; set; }
 
+        private List<Transaction> transactions = new List<Transaction>();
+        private List<Category> categories = new List<Category>();
+
+        public Wallet(User owner, Guid guid, string name, decimal startBalance, string currency, string description = null)
+        {
+            Guid = guid;
+            Name = name;
+            StartBalance = startBalance;
+            Balance = startBalance;
+            Currency = currency;
+            Description = description;
+            this.owner = owner;
+        }
+
         public void AddTransaction(decimal sum, string currency, Category category, DateTime date, string description = null, List<string> files = null)
         {
             transactions.Add(new Transaction(this, sum, currency, category, date, description, files));
-            CurrentBalance = CurrentBalance + sum;
+            Balance = Balance + sum;
         }
 
         public bool DeleteTransaction(int id)
@@ -49,7 +50,7 @@ namespace Budgets
                 if (t.Id == id)
                 {
                     transactions.Remove(t);
-                    CurrentBalance -= t.Sum;
+                    Balance -= t.Sum;
                     return true;
                 }
             }
@@ -152,7 +153,7 @@ namespace Budgets
             {
                 isValid = false;
             }
-            
+
             return isValid;
         }
     }

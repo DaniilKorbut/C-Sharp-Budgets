@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Budgets
+namespace Budgets.BusinessLayer
 {
     class Program
     {

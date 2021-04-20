@@ -6,8 +6,12 @@
              xmlns:local="clr-namespace:Budgets.GUI.WPF.Wallets"
              mc:Ignorable="d" 
              >
+    <ScrollViewer>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
@@ -21,5 +25,17 @@
             <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
+        <StackPanel Grid.Row="2" >
+            <TextBlock Margin="10, 10, 10, 0">Description</TextBlock>
+            <TextBox MinWidth="300" Height="Auto" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3">
+            <TextBlock Margin="10, 10, 10, 0">Currency</TextBlock>
+            <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding Currency, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </StackPanel>
+        <Button Grid.Row="4" Height="Auto" Margin="10" Command="{Binding SaveWalletCommand}">Save</Button>
     </Grid>
+    </ScrollViewer>
 </UserControl>

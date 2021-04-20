@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Budgets.BusinessLayer.Wallets;
+using System;
 using System.Collections.Generic;
 
-namespace Budgets
+namespace Budgets.BusinessLayer
 {
     public class Transaction
     {
@@ -22,10 +23,10 @@ namespace Budgets
             Sum = sum;
             this.currency = currency;
             this.category = category;
-            this.Date = date;
+            Date = date;
             this.description = description;
             this.files = files;
-            if(files == null)
+            if (files == null)
             {
                 files = new List<string>();
             }
@@ -37,8 +38,8 @@ namespace Budgets
 
         public bool Validate()
         {
-            bool isValid = this.wallet != null;
-            if (string.IsNullOrWhiteSpace(this.currency))
+            bool isValid = wallet != null;
+            if (string.IsNullOrWhiteSpace(currency))
             {
                 isValid = false;
             }

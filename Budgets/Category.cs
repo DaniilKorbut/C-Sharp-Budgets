@@ -1,4 +1,4 @@
-﻿namespace Budgets
+﻿namespace Budgets.BusinessLayer
 {
     public class Category
     {
@@ -11,11 +11,11 @@
 
         public Category(string name, string color, string description = null, string icon = null)
         {
-            this.Name = name;
-            this.Color = color;
-            this.Description = description;
-            this.Icon = icon;
-            this.Id = InstanceCount++;
+            Name = name;
+            Color = color;
+            Description = description;
+            Icon = icon;
+            Id = InstanceCount++;
         }
 
         public string Name { get => name; set => name = value; }

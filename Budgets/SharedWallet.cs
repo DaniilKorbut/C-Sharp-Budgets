@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Budgets.BusinessLayer.Wallets;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Budgets
+namespace Budgets.BusinessLayer
 {
     class SharedWallet
     {
@@ -13,9 +14,9 @@ namespace Budgets
             this.wallet = wallet;
         }
 
-        public int Id
+        public Guid Guid
         {
-            get => wallet.Id;
+            get => wallet.Guid;
         }
 
         public string Name
@@ -28,9 +29,9 @@ namespace Budgets
             get => wallet.StartBalance;
         }
 
-        public decimal CurrentBalance
+        public decimal Balance
         {
-            get => wallet.CurrentBalance;
+            get => wallet.Balance;
         }
 
         public string Description

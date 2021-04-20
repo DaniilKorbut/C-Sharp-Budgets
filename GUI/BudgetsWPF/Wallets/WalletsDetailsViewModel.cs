@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Budgets.Models.Wallets;
+using System.Windows;
+using Budgets.BusinessLayer.Users;
+using Budgets.BusinessLayer.Wallets;
+using Budgets.Services;
+using Prism.Commands;
 using Prism.Mvvm;
 
 namespace Budgets.GUI.WPF.Wallets
@@ -11,6 +15,16 @@ namespace Budgets.GUI.WPF.Wallets
     public class WalletsDetailsViewModel : BindableBase
     {
         private Wallet _wallet;
+
+        public DelegateCommand SaveWalletCommand { get; }
+
+        public Guid Guid
+        {
+            get
+            {
+                return _wallet.Guid;
+            }
+        }
 
         public string Name
         {
@@ -38,17 +52,51 @@ namespace Budgets.GUI.WPF.Wallets
             }
         }
 
+        public string Description
+        {
+            get
+            {
+                return _wallet.Description;
+            }
+            set
+            {
+                _wallet.Description = value;
+                RaisePropertyChanged(nameof(Description));
+            }
+        }
+
+        public string Currency
+        {
+            get
+            {
+                return _wallet.Currency;
+            }
+            set
+            {
+                _wallet.Currency = value;
+                RaisePropertyChanged(nameof(Currency));
+            }
+        }
+
         public string DisplayName
         {
             get
             {
-                return $"{_wallet.Name} (${_wallet.Balance})";
+                return $"{_wallet.Name} ({_wallet.Balance} {_wallet.Currency})";
             }
         }
 
         public WalletsDetailsViewModel(Wallet wallet)
         {
             _wallet = wallet;
+            SaveWalletCommand = new DelegateCommand(saveCurrentWallet);
+        }
+
+        public async void saveCurrentWallet()
+        {
+            var service = new WalletService();
+            await service.AddOrUpdateWallet(_wallet);
+            MessageBox.Show("Wallet successfully saved", "Operation succeed");
         }
     }
 }

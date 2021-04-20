@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Budgets.Models.Users;
+using Budgets.BusinessLayer.Users;
 using DataStorage;
 
 namespace Budgets.Services
@@ -60,7 +60,7 @@ namespace Budgets.Services
                 vs.ValidateLogin(regUser.Login);
                 vs.ValidatePassword(regUser.Password);
 
-                dbUser = new DBUser(regUser.FirstName, regUser.LastName, regUser.Email, regUser.Login,
+                dbUser = new DBUser(Guid.NewGuid(), regUser.FirstName, regUser.LastName, regUser.Email, regUser.Login,
                     ComputeHash(regUser.Password, new SHA256CryptoServiceProvider()));
                 await storage.AddOrUpdateAsync(dbUser);
                 return true;

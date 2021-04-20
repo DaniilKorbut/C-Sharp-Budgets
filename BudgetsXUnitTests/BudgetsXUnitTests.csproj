@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Budgets\Budgets.csproj" />
+    <ProjectReference Include="..\Budgets\BusinessLayer.csproj" />
   </ItemGroup>
 
 </Project>

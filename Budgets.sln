@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Budgets", "Budgets\Budgets.csproj", "{DAAD02B2-DB50-4383-BD90-2F1338858A1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "Budgets\BusinessLayer.csproj", "{DAAD02B2-DB50-4383-BD90-2F1338858A1D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BudgetsTests", "BudgetsTests", "{81B3B541-A53A-40B4-B61C-0F3E698E31C4}"
 EndProject
@@ -11,11 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetsXUnitTests", "Budget
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetsWPF", "GUI\BudgetsWPF\BudgetsWPF.csproj", "{744F2B92-8349-4820-BCFE-C81E3E6E6772}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{FD136EFC-22CF-463F-96E1-50B5B22110E9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{CF67D0C0-D00E-4127-9777-FF7CCA2ABD5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorage", "DataStorage\DataStorage.csproj", "{E24A17FD-DBC8-4742-AE06-6D8F96C64670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStorage", "DataStorage\DataStorage.csproj", "{E24A17FD-DBC8-4742-AE06-6D8F96C64670}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{744F2B92-8349-4820-BCFE-C81E3E6E6772}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{744F2B92-8349-4820-BCFE-C81E3E6E6772}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{744F2B92-8349-4820-BCFE-C81E3E6E6772}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD136EFC-22CF-463F-96E1-50B5B22110E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD136EFC-22CF-463F-96E1-50B5B22110E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD136EFC-22CF-463F-96E1-50B5B22110E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD136EFC-22CF-463F-96E1-50B5B22110E9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF67D0C0-D00E-4127-9777-FF7CCA2ABD5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF67D0C0-D00E-4127-9777-FF7CCA2ABD5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF67D0C0-D00E-4127-9777-FF7CCA2ABD5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
