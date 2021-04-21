@@ -14,28 +14,34 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <TextBlock Margin="10, 10, 10, 0">Name</TextBlock>
-            <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+            <TextBox MinWidth="250" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" >
             <TextBlock Margin="10, 10, 10, 0">Balance</TextBlock>
-            <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox MinWidth="250" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="true"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="2" >
+            <TextBlock Margin="10, 10, 10, 0">Start Balance</TextBlock>
+            <TextBox MinWidth="250" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding StartBalance, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </StackPanel>
+            <StackPanel Grid.Row="3" >
             <TextBlock Margin="10, 10, 10, 0">Description</TextBlock>
-            <TextBox MinWidth="300" Height="Auto" Margin="10" HorizontalAlignment="Stretch" 
+            <TextBox MinWidth="250" Height="Auto" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"></TextBox>
         </StackPanel>
-        <StackPanel Grid.Row="3">
+        <StackPanel Grid.Row="4">
             <TextBlock Margin="10, 10, 10, 0">Currency</TextBlock>
-            <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+            <TextBox MinWidth="250" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Currency, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
-        <Button Grid.Row="4" Height="Auto" Margin="10" Command="{Binding SaveWalletCommand}">Save</Button>
+        <Button Grid.Row="5" Height="Auto" Margin="10" Command="{Binding SaveWalletCommand}">Save</Button>
     </Grid>
     </ScrollViewer>
 </UserControl>

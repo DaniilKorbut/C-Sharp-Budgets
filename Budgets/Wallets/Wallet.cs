@@ -39,15 +39,15 @@ namespace Budgets.BusinessLayer.Wallets
 
         public void AddTransaction(decimal sum, string currency, Category category, DateTime date, string description = null, List<string> files = null)
         {
-            transactions.Add(new Transaction(this, sum, currency, category, date, description, files));
+            transactions.Add(new Transaction(Guid.NewGuid(), sum, currency, category, date, description, files));
             Balance = Balance + sum;
         }
 
-        public bool DeleteTransaction(int id)
+        public bool DeleteTransaction(Guid guid)
         {
             foreach (Transaction t in transactions)
             {
-                if (t.Id == id)
+                if (t.Guid == guid)
                 {
                     transactions.Remove(t);
                     Balance -= t.Sum;

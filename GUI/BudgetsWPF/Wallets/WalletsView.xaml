@@ -4,11 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Budgets.GUI.WPF.Wallets"
+             xmlns:transactions="clr-namespace:Budgets.GUI.WPF.Transactions"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" FontSize="16">
     <UserControl.Resources>
         <DataTemplate DataType="{ x:Type local:WalletsDetailsViewModel}">
             <local:WalletsDetailsView></local:WalletsDetailsView>
+        </DataTemplate>
+        <DataTemplate DataType="{ x:Type transactions:TransactionsViewModel}">
+            <transactions:TransactionsView></transactions:TransactionsView>
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
@@ -16,17 +20,23 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="200"></ColumnDefinition>
             <ColumnDefinition Width="2"></ColumnDefinition>
             <ColumnDefinition Width="3*" MinWidth="320"></ColumnDefinition>
+            <ColumnDefinition Width="2"></ColumnDefinition>
+            <ColumnDefinition Width="3*" MinWidth="200"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ListView ItemsSource="{Binding Wallets}" DisplayMemberPath="DisplayName" SelectionMode="Single"
                   SelectedItem="{Binding CurrentWallet}"></ListView>
         <Button Grid.Column="0" Grid.Row="1" Margin="10 10 10 10" Command="{Binding AddWalletCommand}">Add</Button>
         <Button Grid.Column="0" Grid.Row="2" Margin="10 0 10 10" Command="{Binding DeleteWalletCommand}">Remove</Button>
+        <Button Grid.Column="0" Grid.Row="3" Margin="10 0 10 10" Command="{Binding SignOutCommand}">Sign Out</Button>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"></GridSplitter>
-        <ContentControl  Grid.Column="2" Grid.Row="0" Content="{Binding CurrentWallet}" Grid.RowSpan="3"></ContentControl>
+        <ContentControl  Grid.Column="2" Grid.Row="0" Content="{Binding CurrentWallet}" Grid.RowSpan="4"></ContentControl>
+        <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch"></GridSplitter>
+        <ContentControl  Grid.Column="4" Grid.Row="0" Content="{Binding Transactions}" Grid.RowSpan="4"></ContentControl>
     </Grid>
 </UserControl>

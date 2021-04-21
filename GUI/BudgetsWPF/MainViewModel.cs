@@ -24,7 +24,7 @@ namespace Budgets.GUI.WPF
             }
             else
             {
-                return new WalletsViewModel();
+                return new WalletsViewModel(() => Navigate(MainNavigatableTypes.Auth));
             }
         }
     }

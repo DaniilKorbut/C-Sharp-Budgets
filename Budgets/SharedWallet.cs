@@ -49,9 +49,9 @@ namespace Budgets.BusinessLayer
             wallet.AddTransaction(sum, currency, category, date, description, files);
         }
 
-        public bool DeleteTransaction(int id)
+        public bool DeleteTransaction(Guid guid)
         {
-            return wallet.DeleteTransaction(id);
+            return wallet.DeleteTransaction(guid);
         }
 
         public bool AddCategory(Category category)

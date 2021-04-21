@@ -9,7 +9,7 @@
         private string color;
         private string icon;
 
-        public Category(string name, string color, string description = null, string icon = null)
+        public Category(string name, string color = null, string description = null, string icon = null)
         {
             Name = name;
             Color = color;

@@ -16,6 +16,9 @@ namespace Budgets.GUI.WPF.Wallets
     {
         private Wallet _wallet;
 
+        private decimal incomesThisMonth;
+        private decimal expensesThisMonth;
+
         public DelegateCommand SaveWalletCommand { get; }
 
         public Guid Guid
@@ -52,6 +55,45 @@ namespace Budgets.GUI.WPF.Wallets
             }
         }
 
+        public decimal StartBalance
+        {
+            get
+            {
+                return _wallet.StartBalance;
+            }
+            set
+            {
+                _wallet.StartBalance = value;
+                RaisePropertyChanged(nameof(DisplayName));
+            }
+        }
+
+        public decimal IncomeThisMonth
+        {
+            get
+            {
+                return incomesThisMonth;
+            }
+            set
+            {
+                incomesThisMonth = value;
+                RaisePropertyChanged(nameof(DisplayName));
+            }
+        }
+
+        public decimal ExpensesThisMonth
+        {
+            get
+            {
+                return expensesThisMonth;
+            }
+            set
+            {
+                expensesThisMonth = value;
+                RaisePropertyChanged(nameof(DisplayName));
+            }
+        }
+
         public string Description
         {
             get
@@ -82,7 +124,7 @@ namespace Budgets.GUI.WPF.Wallets
         {
             get
             {
-                return $"{_wallet.Name} ({_wallet.Balance} {_wallet.Currency})";
+                return $"{_wallet.Name}";
             }
         }
 

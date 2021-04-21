@@ -77,6 +77,10 @@ namespace DataStorage
 
         public void Delete(Guid guid)
         {
+            if (guid == Guid.Empty)
+            {
+                Directory.Delete(BaseFolder, true);
+            }
             string FilePath = Path.Combine(BaseFolder, guid.ToString("N"));
 
             if (!File.Exists(FilePath))
